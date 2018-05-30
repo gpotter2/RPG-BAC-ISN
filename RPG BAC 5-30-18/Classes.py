@@ -63,6 +63,13 @@ class QuestClass(SDict):
         #Labo#
         self.Fabien = False
 
+class MapClass(SDict):
+
+    def __init__(self, *args):
+        super(MapClass, self).__init__(*args)
+
+    def default(self):
+        self.CurrentMapName = "ChambreTest"
 ### CHARGER ###
 
 #---QUEST---#
@@ -80,3 +87,10 @@ try:
 except (OSError, IOError):  # Pas de sauvegarde
     Modules = ModulesClass()
     Modules.default()
+#---MAP---#
+Fichier_sauvegarde_Map = "Save/sauvegarde_map.json"
+try:
+    Map = MapClass(charger_fichier(Fichier_sauvegarde_Map))
+except (OSError, IOError):
+    Map = MapClass()
+    Map.default()

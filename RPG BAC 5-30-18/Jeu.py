@@ -52,7 +52,7 @@ AllPortails = AllPortailsFIXE
 PORT = 1
 #---#
 
-MapName = "ChambreTest"
+MapName = Map.CurrentMapName
 Mapping = MappingClass()
 #>>>>>>> ef8fa6c2c155937eeef10c2ca809ec239a5a2849
 Map = Mapping.Charger_Map("maps/{}.map".format(MapName))
@@ -293,6 +293,7 @@ while Continuer:
 
     for Portail in AllPortails.values():
         if LocPerso3 == Portail[2] and CurrentMap == Portail[0]:
+            Map.CurrentMapName = Portail[1]
             CurrentMap = Portail[1]
             Background.Obstacle = []
             Mapping.ObstacleDecor = []
@@ -305,7 +306,7 @@ while Continuer:
             #print(Modules.Axe_x, Modules.Axe_xINIT)
             Modules.Axe_y = Modules.Axe_yINIT + Modules.Diff[1]*Background.TailleGrid
             #print(Modules.Axe_y, Modules.Axe_yINIT)
-            Map = Mapping.Charger_Map("maps/{}.map".format(CurrentMap))
+            Map = Mapping.Charger_Map("maps/{}.map".format(Map.CurrentMapName))
             Terrain = Map[0]
             #Decor = Map[1]
 
@@ -470,5 +471,6 @@ pygame.quit()
 # Sauvegarde
 ecrire_fichier(Fichier_sauvegarde, Quest)
 ecrire_fichier(Fichier_sauvegarde_module, Modules)
+ecrire_fichier(Fichier_sauvegarde_Map, Map)
 sys.exit()
     
