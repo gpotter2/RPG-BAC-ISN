@@ -46,6 +46,7 @@ AllPortails = AllPortailsFIXE
 PORT = 1
 #---#
 MapName = "ChambreTest"
+Mapping = MappingClass()
 Map = Mapping.Charger_Map("maps/{}.map".format(MapName))
 CurrentMap = "{}".format(MapName)
 Terrain = Map[0]

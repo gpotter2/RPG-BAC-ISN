@@ -9,7 +9,7 @@ pygame.init()
 
 global Current, Gesture
 
-class Gestuel:
+class GestuelClass(object):
 
     global Current, Gesture
 
@@ -20,7 +20,7 @@ class Gestuel:
                    "Timothée", "VictorD", "Victoria"
                   ]
                   
-    def ChargerGesture(Nom):
+    def ChargerGesture(self, Nom):
         global Current, Gesture
         Taille = [64, 64]
         Largeur = Taille[0]
@@ -95,18 +95,20 @@ class Gestuel:
     
     #print(Gesture)
 
+Gestuel = GestuelClass()
+
 def MoveNPC(npc):
     npc.facing = random.choice(("Face0", "Dos0", "Gauche0", "Droite0"))
     npc.walking = random.choice((True, False))
 
 
-class Dialogue:
+class Dialogue(object):
 
     def __init__(self, Texte):
         self.Page = 0
         self.Texte = Texte #[('Page 1 Ligne 1', 'Page 1 Ligne 2'), ('Page 2 Ligne 1')]
         
-class NPC:
+class NPC(object):
 
     AllNPCs = []
     Decor = []
@@ -163,7 +165,7 @@ class NPC:
 class PNJ(NPC):
 
     def __init__(self, Nom, Pos, Dialogue = None, Surface = None):
-        super().__init__(Nom, Pos, Dialogue, Surface)
+        super(PNJ, self).__init__(Nom, Pos, Dialogue, Surface)
         #super().__init__()
     #def ApparitionPNJ(surface):
         

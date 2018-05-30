@@ -5,15 +5,16 @@ from Textures import *
 from Classes import *
 import math
 
-class Mapping:
+class MappingClass(object):
 
-    DecorListe = []
-    ObstacleDecor = []
+    def __init__(self):
+        self.DecorListe = []
+        self.ObstacleDecor = []
     
-    def AjouterDecor(Texture, Coord, Zone):
+    def AjouterDecor(self, Texture, Coord, Zone):
         Zone.blit(Texture,(Coord[0]* Background.TailleGrid, Coord[1]* Background.TailleGrid))
     
-    def Charger_Map(Fichier):
+    def Charger_Map(self, Fichier):
         with open(Fichier, "r") as FichierMap:
             Map_Data = FichierMap.read()
         #Data = open(Fichier, mode="r").readlines()
@@ -48,29 +49,20 @@ class Mapping:
 
         for Sprite in Sprites:
             if Sprite[1] in Background.DicoTextures:
-                Mapping.AjouterDecor(Background.DicoTextures[Sprite[1]], Sprite[0], Terrain)
+                self.AjouterDecor(Background.DicoTextures[Sprite[1]], Sprite[0], Terrain)
                 
             if Sprite[1] in Background.DicoDecorsOBSTACLE:
                 Loc = Sprite[0]
                 LocationA = [int(Loc[0]), int((Loc[1]+1))]
                 
-                if not LocationA in Mapping.ObstacleDecor:
-                    Mapping.ObstacleDecor.append(LocationA)
+                if not LocationA in self.ObstacleDecor:
+                    self.ObstacleDecor.append(LocationA)
             if Sprite[1] in Background.DicoDecors:
-                Mapping.DecorListe.append(Sprite)
+                self.DecorListe.append(Sprite)
             if Sprite[1] in Background.ObstaclesListe:
                 Loc = Sprite[0]
                 PosObstacle = [Loc[0], Loc[1]]
                 Background.Obstacle.append(PosObstacle)
 
-        #print(Mapping.ObstacleDecor)
+        #print(self.ObstacleDecor)
         return (Terrain, Decor)
-
-
-                              
-
-
-
-
-
-        
