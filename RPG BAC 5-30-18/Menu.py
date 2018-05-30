@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import sys,  pygame, math
+import sys, os, pygame, math
 from pygame.locals import *
 import time
 
@@ -105,6 +105,15 @@ def procedure():
                 elif 200<Souris_x <600 and 300<Souris_y<365:
                     #son.play(0,1000,100)
                     print("Nouvelle Partie")
+                    # Supprimer les fichiers de sauvegarde
+                    try:
+                        os.remove("sauvegarde.json")
+                    except:
+                        pass
+                    try:
+                        os.remove("sauvegarde_module.json")
+                    except:
+                        pass
 
                 elif 200<Souris_x <600 and 400<Souris_y<465:
                     print("Quittez")
