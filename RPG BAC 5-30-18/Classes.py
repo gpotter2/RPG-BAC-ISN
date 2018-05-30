@@ -90,7 +90,7 @@ except (OSError, IOError):  # Pas de sauvegarde
 #---MAP---#
 Fichier_sauvegarde_Map = "Save/sauvegarde_map.json"
 try:
-    Map = MapClass(charger_fichier(Fichier_sauvegarde_Map))
+    Maps = MapClass(charger_fichier(Fichier_sauvegarde_Map))
 except (OSError, IOError):
     Maps = MapClass()
     Maps.default()

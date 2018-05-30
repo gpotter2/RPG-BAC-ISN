@@ -54,6 +54,7 @@ PORT = 1
 
 #MapName = Maps.CurrentMapName
 Mapping = MappingClass()
+
 #>>>>>>> ef8fa6c2c155937eeef10c2ca809ec239a5a2849
 Map = Mapping.Charger_Map("maps/{}.map".format(Maps.CurrentMapName))
 #CurrentMap = "{}".format(MapName)
@@ -293,8 +294,10 @@ while Continuer:
 
     for Portail in AllPortails.values():
         if LocPerso3 == Portail[2] and Maps.CurrentMapName == Portail[0]:
-            Maps.CurrentMapName = Portail[1]
-            print(Portail[1])
+            Maps.CurrentMapName = str(Portail[1])
+            #CurrentMap = Portail[1]
+            #print(Portail[1])
+            #print(str(Portail[1]))
             #CurrentMap = Portail[1]
             Background.Obstacle = []
             Mapping.ObstacleDecor = []
@@ -472,6 +475,6 @@ pygame.quit()
 # Sauvegarde
 ecrire_fichier(Fichier_sauvegarde, Quest)
 ecrire_fichier(Fichier_sauvegarde_module, Modules)
-ecrire_fichier(Fichier_sauvegarde_Map, Map)
+ecrire_fichier(Fichier_sauvegarde_Map, Maps)
 sys.exit()
     
