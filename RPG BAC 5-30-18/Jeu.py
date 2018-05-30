@@ -68,6 +68,7 @@ Pos_PyFIXE = 0
 TP = False
 #---#
 
+
 #---DIALOGUE BOX---#
 DialogueBox = pygame.image.load("Textures/Detail/DialogueBox.png")
 DialogueBox = pygame.transform.scale(DialogueBox, (760, 120))
@@ -458,5 +459,8 @@ while Continuer:
 
 
 pygame.quit()
+# Sauvegarde
+ecrire_fichier(Fichier_sauvegarde, Quest)
+ecrire_fichier(Fichier_sauvegarde_module, Modules)
 sys.exit()
     
