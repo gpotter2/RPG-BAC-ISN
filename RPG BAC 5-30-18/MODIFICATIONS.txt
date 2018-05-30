@@ -1,0 +1,19 @@
++-----AJOUT-----+
+
+
+
++-----SUITE-----+
+
+---> Ajout Textures Perso + Deco => EN COURS /!\
+
+---> Système Perso Jeu.py compact.
+	=> def Textures (Largeur, Hauteur)
+
+---> Début GUI (Options etc...)
+	=> InvEdit amélioré (Maison, Decor...)
+	=> Options + Menu Jeu (Musique ?)
+	=> JOURNAL DE QUETES / ACHIEVMENTS ?
+
+---> Amelioration PNJs.
+	=> Dialogue ?
+	=> Quêtes ?

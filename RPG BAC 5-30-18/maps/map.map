@@ -1,0 +1,35 @@
+0,0:1cBD-
+0,1:1-
+0,2:1cBG-
+1,1:1-
+
+4,4
+
+UN-----------------------------------------
+Map_Data[0] = 0,0:1cBD-
+
+Map_Data[1] = 0,1:1-
+
+Map_Data[2] = 0,2:1cBG-
+
+Map_Data[3] = 1,1:1-
+
+
+
+Map_Data[4] = 4,4  ----> Taille_Map = Map_Data[4] = 4,4
+
+len(Map_Data) = 5
+
+DEUX----------------------------------------
+
+Taille_Map = ["X", "Y"]
+----> Taille_Map[0] = X * 32
+      Taille_Map[1] = Y * 32
+
+Sprites = []
+TROIS----------------------------------------
+
+Sprite allant de 0 à 3:
+	###
+
+Sprites = ["0,0", "1

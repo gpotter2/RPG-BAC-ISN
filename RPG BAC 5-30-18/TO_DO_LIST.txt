@@ -1,0 +1,12 @@
+/// MAPs RESTANTES ///
+
+- Ville de départ
+- Ville principale
+- Repère Vérichon ---
+- Hotel Hall
+- Hotel Chambres + Couloirs XXX
+- Mine
+- Eglise XXX
+- Mairie + Salles
+
+/// PNGs RESTANTS ///
