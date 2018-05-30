@@ -41,10 +41,10 @@ AllPortailsFIXE = {
                 'LaboToDepart' : ('Labo7', 'Foret13', [7, 16], [-16, -5]),
                 'LaboToDepart2' : ('Labo7', 'Foret13', [8, 16], [-16, -5]),
                 #RandomHouse//Ville de Depart
-                'RandSalonToDepart' : ('randomsalon', 'Foret13', [4, 10], []),
-                'RandSalonToDepart2' : ('randomsalon', 'Foret13', [5, 10], []),
-                'DepartToRandSalon' : ('Foret13', 'randomsalon', [], []),
-                'DepartToRandSalon2' : ('Foret13', 'randomsalon', [], [])
+                'RandSalonToDepart' : ('randomsalon', 'Foret13', [5, 11], [-16, -5]),
+                'RandSalonToDepart2' : ('randomsalon', 'Foret13', [6, 11], [-16, -5]),
+                'DepartToRandSalon' : ('Foret13', 'randomsalon', [27, 24], [6, 10]),
+                'DepartToRandSalon2' : ('Foret13', 'randomsalon', [28, 24], [6, 10])
                    }
 
 AllPortails = AllPortailsFIXE
@@ -95,12 +95,12 @@ DCharlesV = [("Page 1 Ligne 1", "Page 1 Ligne 2"), ("Page 2 Ligne 1", "")]
 DInes = [("Bonjour Mon Chaton, bien dormi ?", "J'aurais un Bentô pour Ambre, elle se trouve devant l'Autel, elle doit avoir faim."), ("Tu pourrais lui apporter Minou ? Merci d'avance !", "")]
 DInes2 = [("Salut Mon Amour ~", "Alors, Ambre a reçu son Bentô ?"), ("*Votre mère retourne dans ses pensées*", "")]
 DInes3 = [("Salut Mon Amour ~", "Alors, Ambre est toujours en train de déguster son Bentô ?"), ("*Votre mère retourne dans ses pensées*", "")]
-Ines = PNJ(Nom = "Ines", Pos = (32*7, 32*9), Dialogue = Dialogue(Texte = DInes), Surface = "SalonTest")
+Ines = PNJ(Nom = "Ines", Pos = (32*7, 32*9), Dialogue = Dialogue(Texte = DInes), Surface = "SalonTest", Direction = "Face0")
 #Ambre#
 DAmbre = [("Bonjour ! Je vois que tu te portes plutot bien ~", "J'adore la nature..."), ("Je pourrais passer des heures à contempler le paysage...", "Pas toi ?")]
 DAmbre2 = [("C'est pour moi ça ?", "Tu remercieras ta mère de ma part ! Ca à l'air super bon ! ~"), ("Reviens me voir plus tard si ça te tente !", "")]
 DAmbre3 = [("*Ambre est toujours en train de déguster votre Bento...*", "MMMmmmh... Exchellent !")]
-Ambre = PNJ(Nom = "Ambre", Pos = (32*25, 32*29), Dialogue = Dialogue(Texte = DAmbre), Surface = "Ambre14")
+Ambre = PNJ(Nom = "Ambre", Pos = (32*25, 32*29), Dialogue = Dialogue(Texte = DAmbre), Surface = "Ambre14", Direction = "Face0")
 #Julien#
 DJulien1 = [("Ah, Jacques, le grand, le fameux !",""),("Si je te connais ?", "Non bien sûr, ou alors peu."),("J'aime impressionner avec des grands airs.","C'est toujours mieux que la paperasse officielle."),
            ("Je suis bien content que tu sois venu de ton plein gré.","Autrement tu serais venu de force, emballé dans un sac."),("Tu as neutralisé deux de mes Hommes en pleine affaire ...","et je n'aime pas ça."),
@@ -109,6 +109,12 @@ DJulien1 = [("Ah, Jacques, le grand, le fameux !",""),("Si je te connais ?", "No
            ("Le seul obstacle au bon fonctionnement de mon business","..."),("C'est toi.","C'est assez paradoxal que tu cherches autant d'ennuis."),("Si ton frère meurt sous tes yeux, il est peut-être","temps d'arrêter de marcher dans ses pas ...")]
 
 #Julien = PNJ(Nom = "Julien", Pos = (32*25, 32*25), Dialogue = Dialogue(Texte = DJulien1), Surface = "Foret13")
+#Fabien#
+DFabien1 = DFabien = [("Oh, Bonjour Jacques !", "Oui, je voulais te voir."), ("Tu te rappelles du moment où ton frère est parti ...", "il y a déjà 3 ans ?") ,("Eh bien, il n’est pas  parti sans rien laisser derrière  lui", ""),
+                      ("Il a laissé un journal que j’ai soigneusement récupéré", "... j’attendais le bon moment pour te le donner."),("Il y mentionne notamment une grotte,", "Je pense que tu devrais commencer tes recherches par là.")]
+DFabien2 = [("Alors Jacques… Cette Grotte ?", "")]
+Fabien = PNJ(Nom = "Fabien", Pos = (32*5, 32*8), Dialogue = Dialogue(Texte = DFabien1), Surface = "Labo7", Direction = "Dos0")
+
 #---#
 Pos_P = 0
 Dep_PyH, Dep_PyB, Dep_PxD, Dep_PxG = 0, 0, 0, 0
@@ -126,7 +132,10 @@ while Continuer:
             Continuer = False
 
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_z or event.key == pygame.K_UP and not Modules.DialogueOn:
+            if event.key == pygame.K_ESCAPE:
+                Continuer = False
+                
+            elif event.key == pygame.K_z or event.key == pygame.K_UP and not Modules.DialogueOn:
                 Modules.Deplacement = "haut"
                 Pos_P = 1
                 #Modules.Mouvement('haut')
@@ -187,11 +196,19 @@ while Continuer:
                                 if Quest.Bento == 1:
                                     npc.Dialogue = Dialogue(Texte = DAmbre2)
                                     Quest.Bento = 2
+                                    
                             if npc.Name == "Ines":
                                 if Quest.Bento == 2 or Quest.Bento == 3:
                                     npc.Dialogue = Dialogue(Texte = DInes3)
+                                    
                             if npc.Name == "CharlesA":
                                 npc.Dialogue = Dialogue(Texte = CharlesARandom())
+                                
+                            if npc.Name == "Fabien":
+                                if Quest.Fabien == True:
+                                    npc.Dialogue = Dialogue(Texte = DFabien2)
+                                else:
+                                    Quest.Fabien = True
                                     
                             #DIALOGUE BASE#
                             if Current == "Dos0" and NPC_y > (Pos_Py-2):
@@ -409,7 +426,7 @@ while Continuer:
             pygame.draw.rect(Fenetre_Jeu, (0,0,150), (t[0]*Background.TailleGrid + Modules.Axe_x, t[1]*Background.TailleGrid + Modules.Axe_y, Background.TailleGrid, Background.TailleGrid), 3)
         for t in AllPortails.values():
             POS = t[2]
-            print(POS)
+            #print(POS)
             pygame.draw.rect(Fenetre_Jeu, (150,0,150), (POS[0]*Background.TailleGrid + Modules.Axe_x, POS[1]*Background.TailleGrid + Modules.Axe_y, Background.TailleGrid, Background.TailleGrid), 4)
         for t in Background.Obstacle:
             pygame.draw.rect(Fenetre_Jeu, (150,0,0), (t[0]*Background.TailleGrid + Modules.Axe_x, t[1]*Background.TailleGrid + Modules.Axe_y, Background.TailleGrid, Background.TailleGrid), 5)

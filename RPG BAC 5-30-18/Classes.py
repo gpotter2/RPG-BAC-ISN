@@ -40,3 +40,6 @@ class Quest:
     #Maison Perso#
     Maman = 0
     Bento = 0
+
+    #Labo#
+    Fabien = False

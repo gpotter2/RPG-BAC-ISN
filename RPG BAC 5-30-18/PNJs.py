@@ -115,7 +115,7 @@ class NPC(object):
     LastLocation = 0
     Done = False
     
-    def __init__(self, Nom, Pos, Dialogue, Surface):
+    def __init__(self, Nom, Pos, Dialogue, Surface, Direction):
         self.Name = Nom
         self.X = Pos[0]
         self.Y = Pos[1]
@@ -126,8 +126,8 @@ class NPC(object):
         self.walking = False
         self.Timer = Timer(1)
         self.Timer.OnNext = lambda: MoveNPC(self)
-        self.Current = "Face0"
-        self.CurrentInit = "Face0"
+        self.Current = Direction
+        self.CurrentInit = Direction
         self.Gesture = Gestuel.ChargerGesture(Nom)
 
         NPC.AllNPCs.append(self)
@@ -164,8 +164,8 @@ class NPC(object):
 
 class PNJ(NPC):
 
-    def __init__(self, Nom, Pos, Dialogue = None, Surface = None):
-        super(PNJ, self).__init__(Nom, Pos, Dialogue, Surface)
+    def __init__(self, Nom, Pos, Dialogue = None, Surface = None, Direction = None):
+        super(PNJ, self).__init__(Nom, Pos, Dialogue, Surface, Direction)
         #super().__init__()
     #def ApparitionPNJ(surface):
         
