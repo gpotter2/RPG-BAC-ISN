@@ -21,6 +21,8 @@ class ModulesClass(SDict):
 
     def __init__(self, *args):
         super(ModulesClass, self).__init__(*args)
+
+    def default(self):
         #global Axe_y, Axe_x
         self.Axe_y = -5
         self.Axe_x = 255
@@ -52,6 +54,8 @@ class QuestClass(SDict):
 
     def __init__(self, *args):
         super(QuestClass, self).__init__(*args)
+
+    def default(self):
         #Maison Perso#
         self.Maman = 0
         self.Bento = 0
@@ -67,6 +71,7 @@ try:
     Quest = QuestClass(charger_fichier(Fichier_sauvegarde))
 except (OSError, IOError):  # Pas de sauvegarde
     Quest = QuestClass()
+    Quest.default()
 
 #---MODULES---#
 Fichier_sauvegarde_module = "Save/sauvegarde_module.json"
@@ -74,3 +79,4 @@ try:
     Modules = ModulesClass(charger_fichier(Fichier_sauvegarde_module))
 except (OSError, IOError):  # Pas de sauvegarde
     Modules = ModulesClass()
+    Modules.default()
