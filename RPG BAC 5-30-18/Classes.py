@@ -57,19 +57,19 @@ class QuestClass(SDict):
         self.Bento = 0
         #Premier Village#
         #Labo#
-        Fabien = False
+        self.Fabien = False
 
 ### CHARGER ###
 
 #---QUEST---#
-Fichier_sauvegarde = "sauvegarde.json"
+Fichier_sauvegarde = "Save/sauvegarde.json"
 try:
     Quest = QuestClass(charger_fichier(Fichier_sauvegarde))
 except (OSError, IOError):  # Pas de sauvegarde
     Quest = QuestClass()
 
 #---MODULES---#
-Fichier_sauvegarde_module = "sauvegarde_module.json"
+Fichier_sauvegarde_module = "Save/sauvegarde_module.json"
 try:
     Modules = ModulesClass(charger_fichier(Fichier_sauvegarde_module))
 except (OSError, IOError):  # Pas de sauvegarde

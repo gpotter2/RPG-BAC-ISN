@@ -8,6 +8,7 @@ from Classes import *
 from Mapping import *
 from PNJs import *
 from Menu import *
+from Save import*
 
 pygame.init()
 
@@ -137,6 +138,13 @@ while Continuer:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 Continuer = False
+            elif event.key == pygame.K_KP4:
+                NomSave = input("Nom Save:")
+                ecrire_fichier("Save/" + NomSave + ".json", Quest)
+                ecrire_fichier("Save/" + NomSave + ".json", Modules)
+            elif event.key == pygame.K_KP5:
+                NomSave = input("Nom Save:")
+                charger_fichier("Save/" + NomSave + ".json")
                 
             elif event.key == pygame.K_z or event.key == pygame.K_UP and not Modules.DialogueOn:
                 Modules.Deplacement = "haut"
