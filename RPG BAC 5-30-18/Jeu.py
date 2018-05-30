@@ -294,6 +294,7 @@ while Continuer:
     for Portail in AllPortails.values():
         if LocPerso3 == Portail[2] and Maps.CurrentMapName == Portail[0]:
             Maps.CurrentMapName = Portail[1]
+            print(Portail[1])
             #CurrentMap = Portail[1]
             Background.Obstacle = []
             Mapping.ObstacleDecor = []
