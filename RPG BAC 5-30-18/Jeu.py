@@ -114,7 +114,9 @@ DFabien1 = DFabien = [("Oh, Bonjour Jacques !", "Oui, je voulais te voir."), ("T
                       ("Il a laissé un journal que j’ai soigneusement récupéré", "... j’attendais le bon moment pour te le donner."),("Il y mentionne notamment une grotte,", "Je pense que tu devrais commencer tes recherches par là.")]
 DFabien2 = [("Alors Jacques… Cette Grotte ?", "")]
 Fabien = PNJ(Nom = "Fabien", Pos = (32*5, 32*8), Dialogue = Dialogue(Texte = DFabien1), Surface = "Labo7", Direction = "Dos0")
-
+#Martin#
+DMartin1 = [("XXX", "")]
+Martin = PNJ(Nom = "Martin", Pos = (32*8, 32*2), Dialogue = Dialogue(Texte = DMartin1), Surface = "Labo7", Direction = "Dos0")
 #---#
 Pos_P = 0
 Dep_PyH, Dep_PyB, Dep_PxD, Dep_PxG = 0, 0, 0, 0
