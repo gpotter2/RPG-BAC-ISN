@@ -472,7 +472,12 @@ while Continuer:
 
 
 pygame.quit()
+
 # Sauvegarde
+try:
+    os.mkdir("Save")
+except:
+    pass
 ecrire_fichier(Fichier_sauvegarde, Quest)
 ecrire_fichier(Fichier_sauvegarde_module, Modules)
 ecrire_fichier(Fichier_sauvegarde_Map, Maps)

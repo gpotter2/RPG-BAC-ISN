@@ -106,18 +106,8 @@ def procedure():
                     #son.play(0,1000,100)
                     print("Nouvelle Partie")
                     # Supprimer les fichiers de sauvegarde
-                    try:
-                        os.remove("Save/sauvegarde.json")
-                    except:
-                        pass
-                    try:
-                        os.remove("Save/sauvegarde_module.json")
-                    except:
-                        pass
-                    try:
-                        os.remove("Save/sauvegarde_map.json")
-                    except:
-                        pass
+                    from Classes import supprimer_tout
+                    supprimer_tout()
 
                 elif 200<Souris_x <600 and 400<Souris_y<465:
                     print("Quittez")
