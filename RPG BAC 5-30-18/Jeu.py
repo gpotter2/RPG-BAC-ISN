@@ -50,7 +50,12 @@ AllPortailsFIXE = {
 AllPortails = AllPortailsFIXE
 PORT = 1
 #---#
+<<<<<<< HEAD
 MapName = "randomsalon"
+=======
+MapName = "ChambreTest"
+Mapping = MappingClass()
+>>>>>>> ef8fa6c2c155937eeef10c2ca809ec239a5a2849
 Map = Mapping.Charger_Map("maps/{}.map".format(MapName))
 CurrentMap = "{}".format(MapName)
 Terrain = Map[0]

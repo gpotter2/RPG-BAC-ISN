@@ -7,7 +7,7 @@ from pygame.locals import *
 
 pygame.init()
 
-class Background:
+class BackgroundClass(object):
     
     TailleGrid = 32
 
@@ -18,7 +18,7 @@ class Background:
                       "3BD", "3BG","3HG", "3HD", "4", "4TG", "4TD", "4H", "4B", "4D", "4G", "4HD", "4HG", "4BD", "4BG",
                       "Pierre1", "Pierre2"]
 
-    def Obs(Pos):
+    def Obs(self, Pos):
         if list(Pos) in Background.Obstacle or list(Pos) in Background.ObstaclePNJ:
             return True
         else:
@@ -307,4 +307,4 @@ class Background:
 
 
 
-
+Background = BackgroundClass()
