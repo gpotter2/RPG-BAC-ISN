@@ -40,12 +40,17 @@ AllPortailsFIXE = {
                 'DepartToLabo2' : ('Foret13', 'Labo7', [39, 19], [15, 0]),
                 'LaboToDepart' : ('Labo7', 'Foret13', [7, 16], [-16, -5]),
                 'LaboToDepart2' : ('Labo7', 'Foret13', [8, 16], [-16, -5]),
+                #RandomHouse//Ville de Depart
+                'RandSalonToDepart' : ('randomsalon', 'Foret13', [4, 10], []),
+                'RandSalonToDepart2' : ('randomsalon', 'Foret13', [5, 10], []),
+                'DepartToRandSalon' : ('Foret13', 'randomsalon', [], []),
+                'DepartToRandSalon2' : ('Foret13', 'randomsalon', [], [])
                    }
 
 AllPortails = AllPortailsFIXE
 PORT = 1
 #---#
-MapName = "ChambreTest"
+MapName = "randomsalon"
 Map = Mapping.Charger_Map("maps/{}.map".format(MapName))
 CurrentMap = "{}".format(MapName)
 Terrain = Map[0]
