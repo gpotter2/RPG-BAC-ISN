@@ -92,5 +92,5 @@ Fichier_sauvegarde_Map = "Save/sauvegarde_map.json"
 try:
     Map = MapClass(charger_fichier(Fichier_sauvegarde_Map))
 except (OSError, IOError):
-    Map = MapClass()
-    Map.default()
+    Maps = MapClass()
+    Maps.default()

@@ -52,11 +52,11 @@ AllPortails = AllPortailsFIXE
 PORT = 1
 #---#
 
-MapName = Map.CurrentMapName
+#MapName = Maps.CurrentMapName
 Mapping = MappingClass()
 #>>>>>>> ef8fa6c2c155937eeef10c2ca809ec239a5a2849
-Map = Mapping.Charger_Map("maps/{}.map".format(MapName))
-CurrentMap = "{}".format(MapName)
+Map = Mapping.Charger_Map("maps/{}.map".format(Maps.CurrentMapName))
+#CurrentMap = "{}".format(MapName)
 Terrain = Map[0]
 Decor = Map[1]
 
@@ -195,7 +195,7 @@ while Continuer:
                         NPC_x = npc.X / Background.TailleGrid
                         NPC_y = npc.Y / Background.TailleGrid
 
-                        if Pos_Px >= NPC_x - 1 and Pos_Px <= NPC_x + 2 and Pos_Py >= NPC_y and Pos_Py <= NPC_y + 2 and npc.Surface == CurrentMap:
+                        if Pos_Px >= NPC_x - 1 and Pos_Px <= NPC_x + 2 and Pos_Py >= NPC_y and Pos_Py <= NPC_y + 2 and npc.Surface == Maps.CurrentMapName:
                             #print("NPC_y", NPC_y)
                             #print("Pos_Py", Pos_Py)
 
@@ -292,9 +292,9 @@ while Continuer:
     LocPerso4 = [(round(Pos_Px)), math.floor(Pos_Py)-1]
 
     for Portail in AllPortails.values():
-        if LocPerso3 == Portail[2] and CurrentMap == Portail[0]:
-            Map.CurrentMapName = Portail[1]
-            CurrentMap = Portail[1]
+        if LocPerso3 == Portail[2] and Maps.CurrentMapName == Portail[0]:
+            Maps.CurrentMapName = Portail[1]
+            #CurrentMap = Portail[1]
             Background.Obstacle = []
             Mapping.ObstacleDecor = []
             Background.ObstaclePNJ = []
@@ -306,7 +306,7 @@ while Continuer:
             #print(Modules.Axe_x, Modules.Axe_xINIT)
             Modules.Axe_y = Modules.Axe_yINIT + Modules.Diff[1]*Background.TailleGrid
             #print(Modules.Axe_y, Modules.Axe_yINIT)
-            Map = Mapping.Charger_Map("maps/{}.map".format(Map.CurrentMapName))
+            Map = Mapping.Charger_Map("maps/{}.map".format(Maps.CurrentMapName))
             Terrain = Map[0]
             #Decor = Map[1]
 
@@ -424,7 +424,7 @@ while Continuer:
             Mapping.AjouterDecor(Background.DicoDecors[Sprite[1]], (Pos_Decor[0]+Modules.Axe_x/Background.TailleGrid, Pos_Decor[1]+Modules.Axe_y/Background.TailleGrid), Fenetre_Jeu)
     
     for npc in NPC.AllNPCs:
-        if npc.Surface == CurrentMap:
+        if npc.Surface == Maps.CurrentMapName:
             npc.Render(Fenetre_Jeu)
     
 
