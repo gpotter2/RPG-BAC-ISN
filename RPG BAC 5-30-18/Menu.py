@@ -107,11 +107,15 @@ def procedure():
                     print("Nouvelle Partie")
                     # Supprimer les fichiers de sauvegarde
                     try:
-                        os.remove("sauvegarde.json")
+                        os.remove("Save/sauvegarde.json")
                     except:
                         pass
                     try:
-                        os.remove("sauvegarde_module.json")
+                        os.remove("Save/sauvegarde_module.json")
+                    except:
+                        pass
+                    try:
+                        os.remove("Save/sauvegarde_map.json")
                     except:
                         pass
 
